@@ -4,4 +4,6 @@
     <string name="episodes">Episodes</string>
     <string name="locations">Locations</string>
     <string name="rick_amp_morty">Rick &amp; Morty</string>
+    <string name="episode">Episode:</string>
+    <string name="name">Name:</string>
 </resources>

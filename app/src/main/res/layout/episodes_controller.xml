@@ -6,4 +6,9 @@
     android:paddingStart="15dp"
     android:paddingEnd="15dp">
 
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/episodesRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>
