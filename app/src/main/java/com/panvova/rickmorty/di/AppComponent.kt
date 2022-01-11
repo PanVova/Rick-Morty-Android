@@ -1,5 +1,6 @@
 package com.panvova.rickmorty.di
 
+import com.panvova.rickmorty.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
@@ -19,4 +20,6 @@ interface AppComponent {
 
         fun build(): AppComponent
     }
+
+    fun inject(mainActivity: MainActivity)
 }
