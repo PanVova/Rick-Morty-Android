@@ -1,4 +1,4 @@
-package com.panvova.rickmorty.presentation.features.episodes.epoxyModels
+package com.panvova.rickmorty.presentation.features.episodes.epoxy
 
 import com.panvova.rickmorty.R
 import com.panvova.rickmorty.databinding.ModelEpisodeBinding

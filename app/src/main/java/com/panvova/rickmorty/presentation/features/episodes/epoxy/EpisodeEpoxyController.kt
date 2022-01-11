@@ -1,8 +1,7 @@
-package com.panvova.rickmorty.presentation.features.episodes
+package com.panvova.rickmorty.presentation.features.episodes.epoxy
 
 import com.airbnb.epoxy.EpoxyController
 import com.panvova.rickmorty.domain.model.Episode
-import com.panvova.rickmorty.presentation.features.episodes.epoxyModels.EpisodeEpoxyModel
 
 class EpisodeEpoxyController : EpoxyController() {
 
