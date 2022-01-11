@@ -1,28 +1,35 @@
 package com.panvova.rickmorty.presentation.menu
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.bluelinelabs.conductor.Controller
+import com.bluelinelabs.conductor.RouterTransaction
 import com.panvova.rickmorty.databinding.MenuControllerBinding
+import com.panvova.rickmorty.presentation.base.BaseController
+import com.panvova.rickmorty.presentation.characters.CharactersController
+import com.panvova.rickmorty.presentation.episodes.EpisodeController
+import com.panvova.rickmorty.presentation.locations.LocationController
 
-class MenuController : Controller() {
-    private var _binding: MenuControllerBinding? = null
-    private val binding: MenuControllerBinding
-        get() = _binding!!
+class MenuController : BaseController<MenuControllerBinding>(MenuControllerBinding::inflate) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup,
-        savedViewState: Bundle?
-    ): View {
-        _binding = MenuControllerBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onAttach(view: View) {
+        super.onAttach(view)
+
+        with(binding) {
+            characters.setOnClickListener {
+                moveToController(CharactersController())
+            }
+
+            episodes.setOnClickListener {
+                moveToController(EpisodeController())
+            }
+
+            locations.setOnClickListener {
+                moveToController(LocationController())
+            }
+        }
     }
 
-    override fun onDestroyView(view: View) {
-        _binding = null
-        super.onDestroyView(view)
+    private fun moveToController(controller: Controller) {
+        router.pushController(RouterTransaction.with(controller))
     }
 }

@@ -1,17 +1,8 @@
 package com.panvova.rickmorty.presentation.characters
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.bluelinelabs.conductor.Controller
+import com.panvova.rickmorty.databinding.CharacterControllerBinding
+import com.panvova.rickmorty.presentation.base.BaseController
 
-class CharactersController: Controller() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup,
-        savedViewState: Bundle?
-    ): View {
-        TODO("Not yet implemented")
-    }
+class CharactersController :
+    BaseController<CharacterControllerBinding>(CharacterControllerBinding::inflate) {
 }
