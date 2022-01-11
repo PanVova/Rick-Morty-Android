@@ -1,4 +1,4 @@
-package com.panvova.rickmorty.presentation.locations
+package com.panvova.rickmorty.presentation.features.locations
 
 import com.panvova.rickmorty.databinding.LocationsControllerBinding
 import com.panvova.rickmorty.presentation.base.BaseController

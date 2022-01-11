@@ -1,4 +1,4 @@
-package com.panvova.rickmorty.presentation.episodes
+package com.panvova.rickmorty.presentation.features.episodes
 
 import com.panvova.rickmorty.databinding.EpisodesControllerBinding
 import com.panvova.rickmorty.presentation.base.BaseController
