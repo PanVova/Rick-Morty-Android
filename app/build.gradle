@@ -30,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -62,4 +65,7 @@ dependencies {
 
     // Conductor
     implementation 'com.bluelinelabs:conductor:3.1.2'
+
+    // Epoxy
+    implementation "com.airbnb.android:epoxy:4.6.1"
 }
