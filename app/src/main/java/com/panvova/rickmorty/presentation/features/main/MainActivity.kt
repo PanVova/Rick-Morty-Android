@@ -3,8 +3,10 @@ package com.panvova.rickmorty.presentation.features.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bluelinelabs.conductor.Conductor.attachRouter
+import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.ActivityMainBinding
 import com.panvova.rickmorty.presentation.features.characters.CharactersController
@@ -40,14 +42,26 @@ class MainActivity : AppCompatActivity(), MenuNavigation {
     }
 
     override fun navigateToCharacters() {
-        router.pushController(RouterTransaction.with(CharactersController()))
+        router.pushController(
+            navigateToController(CharactersController())
+        )
     }
 
     override fun navigateToLocations() {
-        router.pushController(RouterTransaction.with(LocationController()))
+        router.pushController(
+            navigateToController(LocationController())
+        )
     }
 
     override fun navigateToEpisodes() {
-        router.pushController(RouterTransaction.with(EpisodeController()))
+        router.pushController(
+            navigateToController(EpisodeController())
+        )
+    }
+
+    private fun navigateToController(controller: Controller): RouterTransaction {
+        return RouterTransaction.with(controller)
+            .pushChangeHandler(FadeChangeHandler())
+            .popChangeHandler(FadeChangeHandler())
     }
 }
