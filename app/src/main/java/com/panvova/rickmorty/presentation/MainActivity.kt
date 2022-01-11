@@ -1,7 +1,8 @@
-package com.panvova.rickmorty
+package com.panvova.rickmorty.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.panvova.rickmorty.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
