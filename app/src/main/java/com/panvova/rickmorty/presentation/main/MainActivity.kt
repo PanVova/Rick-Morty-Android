@@ -7,7 +7,7 @@ import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.ActivityMainBinding
-import com.panvova.rickmorty.presentation.characters.CharactersController
+import com.panvova.rickmorty.presentation.menu.MenuController
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun attachRouter(savedInstanceState: Bundle?) {
-        router = attachRouter(this, binding.root, savedInstanceState)
-        if (!router.hasRootController()) {
-            router.setRoot(RouterTransaction.with(CharactersController()))
+        router = attachRouter(this, binding.controllerContainer, savedInstanceState).apply {
+            setRoot(RouterTransaction.with(MenuController()))
         }
     }
 
