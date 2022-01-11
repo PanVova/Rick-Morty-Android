@@ -1,6 +1,6 @@
 package com.panvova.rickmorty.di
 
-import com.panvova.rickmorty.presentation.MainActivity
+import com.panvova.rickmorty.presentation.main.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
