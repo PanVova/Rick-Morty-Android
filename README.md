@@ -10,3 +10,4 @@ App for using Rick&Morty API
 * Clean Architecture
 * Retrofit + Gson + OkHTTP
 * Timber
+* Epoxy
