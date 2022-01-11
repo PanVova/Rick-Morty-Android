@@ -8,3 +8,5 @@ App for using Rick&Morty API
 * MVI
 * Dagger2
 * Clean Architecture
+* Retrofit + Gson + OkHTTP
+* Timber
