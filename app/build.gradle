@@ -20,10 +20,10 @@ android {
     buildTypes {
         buildTypes {
             debug {
-                buildConfigField "String", "API", "\"https://rickandmortyapi.com/api\""
+                buildConfigField "String", "API", "\"https://rickandmortyapi.com/api/\""
             }
             release {
-                buildConfigField "String", "API", "\"https://rickandmortyapi.com/api\""
+                buildConfigField "String", "API", "\"https://rickandmortyapi.com/api/\""
 
                 minifyEnabled false
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

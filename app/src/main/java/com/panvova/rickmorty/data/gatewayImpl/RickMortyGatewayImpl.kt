@@ -12,25 +12,31 @@ import kotlinx.coroutines.flow.flow
 class RickMortyGatewayImpl(private val rickMortyAPI: RickMortyAPI) : RickMortyGateway {
     override fun getCharacters(): Flow<List<Character>> {
         return flow {
-            rickMortyAPI.getCharacters().results.map { characterResponse ->
-                characterResponse.toDomain()
-            }
+            emit(
+                rickMortyAPI.getCharacters().results.map { characterResponse ->
+                    characterResponse.toDomain()
+                }
+            )
         }
     }
 
     override fun getLocations(): Flow<List<Location>> {
         return flow {
-            rickMortyAPI.getLocations().results.map { locationResponse ->
-                locationResponse.toDomain()
-            }
+            emit(
+                rickMortyAPI.getLocations().results.map { locationResponse ->
+                    locationResponse.toDomain()
+                }
+            )
         }
     }
 
     override fun getEpisodes(): Flow<List<Episode>> {
         return flow {
-            rickMortyAPI.getEpisodes().results.map { episodeResponse ->
-                episodeResponse.toDomain()
-            }
+            emit(
+                rickMortyAPI.getEpisodes().results.map { episodeResponse ->
+                    episodeResponse.toDomain()
+                }
+            )
         }
     }
 }
