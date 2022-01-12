@@ -3,7 +3,7 @@ package com.panvova.rickmorty.presentation.features.menu
 import android.view.View
 import com.panvova.rickmorty.databinding.MenuControllerBinding
 import com.panvova.rickmorty.presentation.base.BaseController
-import com.panvova.rickmorty.presentation.navigation.MenuNavigation
+import com.panvova.rickmorty.presentation.navigation.MenuNavigator
 
 class MenuController : BaseController<MenuControllerBinding>(MenuControllerBinding::inflate) {
 
@@ -12,15 +12,15 @@ class MenuController : BaseController<MenuControllerBinding>(MenuControllerBindi
 
         with(binding) {
             characters.setOnClickListener {
-                (activity as MenuNavigation).navigateToCharacters()
+                (activity as MenuNavigator).navigateToCharacters()
             }
 
             episodes.setOnClickListener {
-                (activity as MenuNavigation).navigateToEpisodes()
+                (activity as MenuNavigator).navigateToEpisodes()
             }
 
             locations.setOnClickListener {
-                (activity as MenuNavigation).navigateToLocations()
+                (activity as MenuNavigator).navigateToLocations()
             }
         }
     }

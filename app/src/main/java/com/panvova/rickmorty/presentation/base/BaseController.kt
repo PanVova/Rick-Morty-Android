@@ -12,7 +12,7 @@ typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 abstract class BaseController<VB : ViewBinding>(private val inflate: Inflate<VB>) : Controller() {
 
     private var _binding: VB? = null
-    val binding get() = _binding!!
+    protected val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?

@@ -1,6 +1,6 @@
 package com.panvova.rickmorty.presentation.navigation
 
-interface MenuNavigation {
+interface MenuNavigator {
     fun navigateToCharacters()
     fun navigateToLocations()
     fun navigateToEpisodes()

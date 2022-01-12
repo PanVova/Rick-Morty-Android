@@ -9,14 +9,19 @@ import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.ActivityMainBinding
+import com.panvova.rickmorty.domain.model.Character
+import com.panvova.rickmorty.presentation.features.characterDetails.CharacterDetailsController
 import com.panvova.rickmorty.presentation.features.characters.CharactersController
 import com.panvova.rickmorty.presentation.features.episodes.EpisodeController
 import com.panvova.rickmorty.presentation.features.locations.LocationController
 import com.panvova.rickmorty.presentation.features.menu.MenuController
-import com.panvova.rickmorty.presentation.navigation.MenuNavigation
+import com.panvova.rickmorty.presentation.navigation.Navigation
+import com.panvova.rickmorty.utils.CHARACTER
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 
-class MainActivity : AppCompatActivity(), MenuNavigation {
+class MainActivity : AppCompatActivity(), Navigation {
 
     private lateinit var router: Router
     private lateinit var binding: ActivityMainBinding
@@ -39,6 +44,15 @@ class MainActivity : AppCompatActivity(), MenuNavigation {
     override fun onBackPressed() {
         if (router.handleBack()) return
         super.onBackPressed()
+    }
+
+    override fun navigateToCharacterDetails(character: Character) {
+        val bundle = Bundle().apply {
+            putSerializable(CHARACTER, Json.encodeToString(character))
+        }
+        router.pushController(
+            navigateToController(CharacterDetailsController(bundle))
+        )
     }
 
     override fun navigateToCharacters() {

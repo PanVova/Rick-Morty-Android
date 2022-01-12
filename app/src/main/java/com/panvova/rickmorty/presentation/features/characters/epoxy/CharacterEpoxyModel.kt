@@ -8,6 +8,7 @@ import com.panvova.rickmorty.presentation.base.ViewBindingKotlinModel
 
 data class CharacterEpoxyModel(
     val character: Character,
+    val clickListener: (Character) -> Unit,
 ) : ViewBindingKotlinModel<ModelCharacterBinding>(R.layout.model_character) {
     override fun ModelCharacterBinding.bind() {
         name.text = character.name
@@ -15,5 +16,9 @@ data class CharacterEpoxyModel(
             .with(image)
             .load(character.image)
             .into(image)
+
+        root.setOnClickListener {
+            clickListener.invoke(character)
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.panvova.rickmorty.presentation.features.characters.epoxy
 import com.airbnb.epoxy.EpoxyController
 import com.panvova.rickmorty.domain.model.Character
 
-class CharacterEpoxyController : EpoxyController() {
+class CharacterEpoxyController(val clickListener: (Character) -> Unit) : EpoxyController() {
 
     var characters: List<Character> = listOf()
         set(value) {
@@ -18,6 +18,8 @@ class CharacterEpoxyController : EpoxyController() {
     }
 
     private fun buildCharacter(character: Character) {
-        CharacterEpoxyModel(character).id(character.id).addTo(this)
+        CharacterEpoxyModel(character) {
+            clickListener.invoke(it)
+        }.id(character.id).addTo(this)
     }
 }
