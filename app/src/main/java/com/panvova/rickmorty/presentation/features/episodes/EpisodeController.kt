@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.EpisodesControllerBinding
 import com.panvova.rickmorty.domain.model.Episode
+import com.panvova.rickmorty.domain.viewstate.EpisodeViewState
 import com.panvova.rickmorty.presentation.base.BaseController
 import com.panvova.rickmorty.presentation.features.episodes.epoxy.EpisodeEpoxyController
 import timber.log.Timber
@@ -33,12 +34,28 @@ class EpisodeController :
         }
     }
 
-    override fun showEpisodes(episodes: List<Episode>) {
+    override fun render(episodeViewState: EpisodeViewState) {
+        when (episodeViewState) {
+            is EpisodeViewState.Success -> showEpisodes(episodeViewState.episodes)
+            is EpisodeViewState.Loading -> showLoading()
+            is EpisodeViewState.Error -> showError(episodeViewState.error)
+        }
+    }
+
+    private fun showEpisodes(episodes: List<Episode>) {
+        binding.episodesRV.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
         episodeEpoxyController.episodes = episodes
     }
 
-    override fun showError(throwable: Throwable) {
-        Timber.e(throwable)
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun showError(error: String) {
+        Timber.e(error)
+        binding.progressBar.visibility = View.GONE
+        binding.error.visibility = View.VISIBLE
     }
 
     override fun onDestroyView(view: View) {
