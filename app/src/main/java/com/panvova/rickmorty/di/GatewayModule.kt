@@ -9,8 +9,7 @@ import dagger.Provides
 @Module
 class GatewayModule {
     @Provides
-    fun provideRickMortyGateway(rickMortyAPI: RickMortyAPI): RickMortyGateway {
-        return RickMortyGatewayImpl(rickMortyAPI)
-    }
+    fun provideRickMortyGateway(rickMortyAPI: RickMortyAPI): RickMortyGateway =
+        RickMortyGatewayImpl(rickMortyAPI)
 }
 

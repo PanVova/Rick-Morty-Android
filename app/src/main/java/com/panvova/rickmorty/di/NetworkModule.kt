@@ -16,41 +16,36 @@ class NetworkModule {
     @Provides
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        headers: Interceptor
-    ): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(headers)
-            .build()
-    }
+        headers: Interceptor,
+    ): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .addInterceptor(headers)
+        .build()
+
 
     @Provides
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
-    }
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor =
+        HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
     @Provides
-    fun provideHeadersInterceptor(): Interceptor {
-        return Interceptor { chain ->
+    fun provideHeadersInterceptor(): Interceptor =
+        Interceptor { chain ->
             val requestBuilder = chain
                 .request()
                 .newBuilder()
             chain.proceed(requestBuilder.build())
         }
-    }
 
     @Provides
-    fun provideRetrofit(@Named("url") baseUrl: String, okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
+    fun provideRetrofit(@Named("url") baseUrl: String, okHttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-    }
+
 
     @Provides
-    fun providePlaiAPI(retrofit: Retrofit): RickMortyAPI {
-        return retrofit.create(RickMortyAPI::class.java)
-    }
+    fun providePlaiAPI(retrofit: Retrofit): RickMortyAPI = retrofit.create(RickMortyAPI::class.java)
 }

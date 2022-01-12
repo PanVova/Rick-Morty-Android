@@ -10,13 +10,9 @@ import javax.inject.Named
 class UtilsModule {
     @Provides
     @Named("IO")
-    fun provideCoroutineDispatcherIO(): CoroutineDispatcher {
-        return Dispatchers.IO
-    }
+    fun provideCoroutineDispatcherIO(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
     @Named("Main")
-    fun provideCoroutineDispatcherMain(): CoroutineDispatcher {
-        return Dispatchers.Main
-    }
+    fun provideCoroutineDispatcherMain(): CoroutineDispatcher = Dispatchers.Main
 }
