@@ -16,7 +16,6 @@ class EpisodeController :
 
     @Inject
     protected lateinit var presenter: EpisodePresenter
-
     private val episodeEpoxyController = EpisodeEpoxyController()
 
     override fun onAttach(view: View) {
@@ -59,7 +58,7 @@ class EpisodeController :
     }
 
     override fun onDestroyView(view: View) {
-        super.onDestroyView(view)
         presenter.detachView(this)
+        super.onDestroyView(view)
     }
 }

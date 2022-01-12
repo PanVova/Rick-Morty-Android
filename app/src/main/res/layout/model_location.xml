@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
+    <TextView
+        android:id="@+id/dimensionTV"
+        style="@style/EpisodeTextView"
+        android:text="@string/dimension"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeTV"
+        app:layout_constraintVertical_bias="0.812" />
+
+    <TextView
+        android:id="@+id/dimension"
+        style="@style/EpisodeInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toEndOf="@+id/dimensionTV"
+        app:layout_constraintTop_toBottomOf="@+id/type"
+        app:layout_constraintVertical_bias="0.842"
+        tools:text="Dimension" />
+
+    <TextView
+        android:id="@+id/typeTV"
+        style="@style/EpisodeTextView"
+        android:text="@string/type"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.506" />
+
+    <TextView
+        android:id="@+id/type"
+        style="@style/EpisodeInfo"
+        android:layout_marginStart="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/typeTV"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.267"
+        tools:text="Type" />
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/EpisodeInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toEndOf="@+id/nameTV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/nameTV"
+        style="@style/EpisodeTextView"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

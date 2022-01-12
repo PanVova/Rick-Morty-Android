@@ -1,6 +1,8 @@
 package com.panvova.rickmorty.di
 
+import com.panvova.rickmorty.presentation.features.characters.CharactersController
 import com.panvova.rickmorty.presentation.features.episodes.EpisodeController
+import com.panvova.rickmorty.presentation.features.locations.LocationController
 import com.panvova.rickmorty.presentation.features.main.MainActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -25,4 +27,6 @@ interface AppComponent {
 
     fun inject(mainActivity: MainActivity)
     fun inject(episodeController: EpisodeController)
+    fun inject(locationController: LocationController)
+    fun inject(characterController: CharactersController)
 }
