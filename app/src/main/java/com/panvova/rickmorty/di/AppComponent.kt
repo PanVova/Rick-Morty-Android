@@ -9,7 +9,8 @@ import javax.inject.Named
 @Component(
     modules = [
         NetworkModule::class,
-        GatewayModule::class
+        GatewayModule::class,
+        UtilsModule::class
     ]
 )
 interface AppComponent {
