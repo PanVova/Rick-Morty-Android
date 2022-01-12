@@ -11,3 +11,5 @@ App for using Rick&Morty API
 * Retrofit + Gson + OkHTTP
 * Timber
 * Epoxy
+
+# ![alt text](https://github.com/uptechteam/Rick-Morty-Android/blob/main/image.jpg)
