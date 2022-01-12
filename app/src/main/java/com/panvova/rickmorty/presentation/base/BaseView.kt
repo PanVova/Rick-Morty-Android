@@ -1,3 +1,3 @@
 package com.panvova.rickmorty.presentation.base
 
-interface BaseView {}
+interface BaseView

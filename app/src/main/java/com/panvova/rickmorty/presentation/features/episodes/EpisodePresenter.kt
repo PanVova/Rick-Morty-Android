@@ -27,17 +27,21 @@ class EpisodePresenter @Inject constructor(
     private fun loadEpisodes() {
         CoroutineScope(coroutineDispatcherIO).launch {
             view?.render(EpisodeViewState.Loading)
-            episodesUseCase.getEpisodes()
-                .catch {
-                    withContext(coroutineDispatcherMain) {
-                        view?.render(EpisodeViewState.Error("Error"))
-                    }
-                }
-                .collect { episodes ->
-                    withContext(coroutineDispatcherMain) {
-                        view?.render(EpisodeViewState.Success(episodes))
-                    }
-                }
+            getEpisodes()
         }
+    }
+
+    private suspend fun getEpisodes() {
+        episodesUseCase.getEpisodes()
+            .catch {
+                withContext(coroutineDispatcherMain) {
+                    view?.render(EpisodeViewState.Error("Error"))
+                }
+            }
+            .collect { episodes ->
+                withContext(coroutineDispatcherMain) {
+                    view?.render(EpisodeViewState.Success(episodes))
+                }
+            }
     }
 }

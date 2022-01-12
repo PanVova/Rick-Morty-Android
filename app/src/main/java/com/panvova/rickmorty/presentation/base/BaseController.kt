@@ -9,17 +9,13 @@ import com.bluelinelabs.conductor.Controller
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-abstract class BaseController<VB : ViewBinding>(
-    private val inflate: Inflate<VB>,
-) : Controller() {
+abstract class BaseController<VB : ViewBinding>(private val inflate: Inflate<VB>) : Controller() {
 
     private var _binding: VB? = null
     val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup,
-        savedViewState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?
     ): View {
         _binding = inflate.invoke(inflater, container, false)
         return binding.root

@@ -4,5 +4,5 @@ import com.panvova.rickmorty.domain.viewstate.EpisodeViewState
 import com.panvova.rickmorty.presentation.base.BaseView
 
 interface EpisodeView : BaseView {
-    fun render(episodeViewState: EpisodeViewState)
+    fun render(state: EpisodeViewState)
 }

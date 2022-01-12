@@ -34,11 +34,11 @@ class EpisodeController :
         }
     }
 
-    override fun render(episodeViewState: EpisodeViewState) {
-        when (episodeViewState) {
-            is EpisodeViewState.Success -> showEpisodes(episodeViewState.episodes)
+    override fun render(state: EpisodeViewState) {
+        when (state) {
+            is EpisodeViewState.Success -> showEpisodes(state.episodes)
             is EpisodeViewState.Loading -> showLoading()
-            is EpisodeViewState.Error -> showError(episodeViewState.error)
+            is EpisodeViewState.Error -> showError(state.error)
         }
     }
 
