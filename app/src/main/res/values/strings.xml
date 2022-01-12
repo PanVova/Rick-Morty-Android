@@ -9,4 +9,5 @@
     <string name="an_error_has_occured">An error has occurred</string>
     <string name="dimension">Dimension:</string>
     <string name="type">Type:</string>
+    <string name="gender">Gender:</string>
 </resources>

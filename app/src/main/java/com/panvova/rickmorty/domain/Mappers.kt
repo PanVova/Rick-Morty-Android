@@ -8,7 +8,7 @@ import com.panvova.rickmorty.domain.model.Episode
 import com.panvova.rickmorty.domain.model.Location
 
 fun CharacterResult.toDomain(): Character {
-    return Character(gender, image, name, species, status)
+    return Character(id, gender, image, name, species, status)
 }
 
 fun EpisodeResult.toDomain(): Episode {
