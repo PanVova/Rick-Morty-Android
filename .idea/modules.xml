@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Rick-Morty-Android.iml" filepath="$PROJECT_DIR$/.idea/Rick-Morty-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Rick&amp;Morty.iml" filepath="$PROJECT_DIR$/.idea/modules/Rick&amp;Morty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Rick&amp;Morty.app.unitTest.iml" />
     </modules>
   </component>
 </project>
