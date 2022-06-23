@@ -13,6 +13,7 @@ class GatewayTest {
     private val gatewayTest = RickMortyGatewayImpl(
             rickMortyAPI = api,
     )
+    // TODO make a fix
 
 
     @Test
