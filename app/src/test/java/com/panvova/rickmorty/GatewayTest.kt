@@ -17,7 +17,6 @@ class GatewayTest {
         locationDao = TestLocationsCache()
     )
 
-
     @Test
     fun checkGetCharacters() = runBlocking {
         var characters: List<Character> = listOf()
