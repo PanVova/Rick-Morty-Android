@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Rick&amp;Morty</string>
+    <string name="characters">Characters</string>
+    <string name="episodes">Episodes</string>
+    <string name="locations">Locations</string>
+    <string name="rick_amp_morty">Rick &amp; Morty</string>
+    <string name="episode">Episode:</string>
+    <string name="name">Name:</string>
+    <string name="an_error_has_occured">An error has occurred</string>
+    <string name="dimension">Dimension:</string>
+    <string name="type">Type:</string>
+    <string name="gender">Gender:</string>
+    <string name="species">Species:</string>
+    <string name="status">Status:</string>
+</resources>
