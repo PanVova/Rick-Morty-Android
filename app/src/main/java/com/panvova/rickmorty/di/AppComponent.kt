@@ -22,7 +22,10 @@ interface AppComponent {
     interface Builder {
         @BindsInstance
         fun baseUrl(@Named("url") url: String): Builder
-        fun context(context: Context): Builder
+
+        @BindsInstance
+        fun context(@Named("context") applicationContext: Context): Builder
+
         fun build(): AppComponent
     }
 

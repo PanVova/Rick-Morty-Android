@@ -51,7 +51,7 @@ class NetworkModule {
       .build()
 
   @Provides
-  fun provideDatabase(applicationContext: Context): AppDatabase {
+  fun provideDatabase(@Named("context") applicationContext: Context): AppDatabase {
     return Room
       .databaseBuilder(applicationContext, AppDatabase::class.java, "local-storage")
       .build()

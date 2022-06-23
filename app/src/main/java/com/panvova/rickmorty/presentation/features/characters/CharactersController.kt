@@ -12,11 +12,11 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class CharactersController :
-    BaseController<EpisodesControllerBinding>(EpisodesControllerBinding::inflate), CharactersView {
+        BaseController<EpisodesControllerBinding>(EpisodesControllerBinding::inflate), CharactersView {
 
     @Inject
     protected lateinit var presenter: CharactersPresenter
-    private val characterEpoxyController = CharacterEpoxyController() {
+    private val characterEpoxyController = CharacterEpoxyController {
         (activity as CharacterNavigator).navigateToCharacterDetails(it)
     }
 
