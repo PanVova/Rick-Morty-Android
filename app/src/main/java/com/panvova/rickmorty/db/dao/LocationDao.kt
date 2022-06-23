@@ -11,6 +11,6 @@ interface LocationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(locationDB: LocationDB)
 
-    @Query("SELECT * FROM locationdb")
+    @Query("SELECT * FROM locations")
     suspend fun getAll(): List<LocationDB>
 }

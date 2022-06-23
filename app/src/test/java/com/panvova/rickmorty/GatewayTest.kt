@@ -4,14 +4,15 @@ import com.panvova.rickmorty.data.gatewayImpl.RickMortyGatewayImpl
 import com.panvova.rickmorty.domain.model.Character
 import com.panvova.rickmorty.domain.model.Episode
 import com.panvova.rickmorty.domain.model.Location
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class GatewayTest {
     private val api = TestApi()
-    private val gatewayTest = RickMortyGatewayImpl(rickMortyAPI = api)
+    private val gatewayTest = RickMortyGatewayImpl(
+            rickMortyAPI = api,
+    )
 
 
     @Test
@@ -21,7 +22,7 @@ class GatewayTest {
             characters = it
         }
         assertEquals(
-            listOf(
+                listOf(
                 Character(
                     id = 1,
                     episode = listOf(),

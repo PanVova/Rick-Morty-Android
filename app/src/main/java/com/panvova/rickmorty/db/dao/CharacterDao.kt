@@ -1,9 +1,6 @@
 package com.panvova.rickmorty.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.panvova.rickmorty.db.dto.CharacterDB
 
 @Dao
@@ -11,6 +8,9 @@ interface CharacterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(characterDB: CharacterDB)
 
-    @Query("SELECT * FROM characterdb")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(charactersDB: List<CharacterDB>)
+
+    @Query("SELECT * FROM characters")
     suspend fun getAll(): List<CharacterDB>
 }

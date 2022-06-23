@@ -11,6 +11,6 @@ interface EpisodeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(episodeDB: EpisodeDB)
 
-    @Query("SELECT * FROM episodedb")
+    @Query("SELECT * FROM episodes")
     suspend fun getAll(): List<EpisodeDB>
 }
