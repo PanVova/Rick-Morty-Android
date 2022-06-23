@@ -11,9 +11,11 @@ import org.junit.Test
 class GatewayTest {
     private val api = TestApi()
     private val gatewayTest = RickMortyGatewayImpl(
-            rickMortyAPI = api,
+        rickMortyAPI = api,
+        characterDao = TestCharactersCache(),
+        episodeDao = TestEpisodesCache(),
+        locationDao = TestLocationsCache()
     )
-    // TODO make a fix
 
 
     @Test

@@ -8,9 +8,6 @@ interface CharacterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(characterDB: CharacterDB)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(charactersDB: List<CharacterDB>)
-
     @Query("SELECT * FROM characters")
     suspend fun getAll(): List<CharacterDB>
 }
