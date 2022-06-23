@@ -1,5 +1,6 @@
 package com.panvova.rickmorty.di
 
+import android.content.Context
 import com.panvova.rickmorty.presentation.features.characters.CharactersController
 import com.panvova.rickmorty.presentation.features.episodes.EpisodeController
 import com.panvova.rickmorty.presentation.features.locations.LocationController
@@ -21,6 +22,7 @@ interface AppComponent {
     interface Builder {
         @BindsInstance
         fun baseUrl(@Named("url") url: String): Builder
+        fun context(context: Context): Builder
         fun build(): AppComponent
     }
 

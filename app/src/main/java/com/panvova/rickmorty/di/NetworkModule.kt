@@ -1,6 +1,9 @@
 package com.panvova.rickmorty.di
 
+import android.content.Context
+import androidx.room.Room
 import com.panvova.rickmorty.data.RickMortyAPI
+import com.panvova.rickmorty.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -13,39 +16,47 @@ import javax.inject.Named
 
 @Module
 class NetworkModule {
-    @Provides
-    fun provideOkHttpClient(
-        loggingInterceptor: HttpLoggingInterceptor,
-        headers: Interceptor,
-    ): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .addInterceptor(headers)
-        .build()
+  @Provides
+  fun provideOkHttpClient(
+    loggingInterceptor: HttpLoggingInterceptor,
+    headers: Interceptor,
+  ): OkHttpClient = OkHttpClient.Builder()
+    .addInterceptor(loggingInterceptor)
+    .addInterceptor(headers)
+    .build()
 
+  @Provides
+  fun provideLoggingInterceptor(): HttpLoggingInterceptor =
+    HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-    @Provides
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor =
-        HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
+  @Provides
+  fun provideHeadersInterceptor(): Interceptor =
+    Interceptor { chain ->
+      val requestBuilder = chain
+        .request()
+        .newBuilder()
+      chain.proceed(requestBuilder.build())
+    }
 
-    @Provides
-    fun provideHeadersInterceptor(): Interceptor =
-        Interceptor { chain ->
-            val requestBuilder = chain
-                .request()
-                .newBuilder()
-            chain.proceed(requestBuilder.build())
-        }
+  @Provides
+  fun provideRetrofit(
+    @Named("url") baseUrl: String,
+    okHttpClient: OkHttpClient
+  ): Retrofit =
+    Retrofit.Builder()
+      .baseUrl(baseUrl)
+      .client(okHttpClient)
+      .addConverterFactory(GsonConverterFactory.create())
+      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+      .build()
 
-    @Provides
-    fun provideRetrofit(@Named("url") baseUrl: String, okHttpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+  @Provides
+  fun provideDatabase(applicationContext: Context): AppDatabase {
+    return Room
+      .databaseBuilder(applicationContext, AppDatabase::class.java, "local-storage")
+      .build()
+  }
 
-
-    @Provides
-    fun providePlaiAPI(retrofit: Retrofit): RickMortyAPI = retrofit.create(RickMortyAPI::class.java)
+  @Provides
+  fun providePlaiAPI(retrofit: Retrofit): RickMortyAPI = retrofit.create(RickMortyAPI::class.java)
 }
