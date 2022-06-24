@@ -11,5 +11,11 @@ App for using Rick&Morty API
 * Retrofit + Gson + OkHTTP
 * Timber
 * Epoxy
+* Unit tests
+* App shortcuts
+* Caching - Room
 
 # ![alt text](https://github.com/uptechteam/Rick-Morty-Android/blob/main/image.jpg)
+# ![alt text](https://github.com/PanVova/Rick-Morty-Android/blob/main/photo_2022-06-24_13-10-16.jpg)
+
+
