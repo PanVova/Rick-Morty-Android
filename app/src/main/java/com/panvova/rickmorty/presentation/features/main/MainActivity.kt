@@ -30,14 +30,18 @@ class MainActivity : AppCompatActivity(), Navigation {
         super.onCreate(savedInstanceState)
         App.component.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        var controller: Controller = MenuController()
+        if (intent.action == "android.intent.action.LOCATION") {
+            controller = LocationController()
+        }
 
-        attachRouter(savedInstanceState)
+        setContentView(binding.root)
+        attachRouter(savedInstanceState, controller)
     }
 
-    private fun attachRouter(savedInstanceState: Bundle?) {
+    private fun attachRouter(savedInstanceState: Bundle?, controller: Controller) {
         router = attachRouter(this, binding.controllerContainer, savedInstanceState).apply {
-            setRoot(RouterTransaction.with(MenuController()))
+            setRoot(RouterTransaction.with(controller))
         }
     }
 
