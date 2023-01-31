@@ -1,12 +1,13 @@
 package com.panvova.rickmorty.presentation.base
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import org.koin.core.qualifier.named
+import org.koin.java.KoinJavaComponent.inject
 
 abstract class BasePresenter<V : BaseView> {
 
-    protected val coroutineDispatcherMain: CoroutineDispatcher = Dispatchers.Main
-    protected val coroutineDispatcherIO: CoroutineDispatcher = Dispatchers.IO
+    protected val coroutineDispatcherMain: CoroutineDispatcher by inject(CoroutineDispatcher::class.java, named("main"))
+    protected val coroutineDispatcherIO: CoroutineDispatcher by inject(CoroutineDispatcher::class.java, named("io"))
 
     protected var view: V? = null
 
