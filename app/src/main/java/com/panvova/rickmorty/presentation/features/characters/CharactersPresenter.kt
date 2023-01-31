@@ -5,13 +5,11 @@ import com.panvova.rickmorty.domain.viewstate.CharacterViewState
 import com.panvova.rickmorty.presentation.base.BasePresenter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class CharactersPresenter @Inject constructor(
-    private val charactersUseCase: GetCharactersUseCase,
+class CharactersPresenter(
+    private val charactersUseCase: GetCharactersUseCase
 ) : BasePresenter<CharactersView>() {
 
     override fun loadData() {

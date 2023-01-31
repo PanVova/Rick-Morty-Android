@@ -2,25 +2,23 @@ package com.panvova.rickmorty.presentation.features.episodes
 
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.EpisodesControllerBinding
 import com.panvova.rickmorty.domain.model.Episode
 import com.panvova.rickmorty.domain.viewstate.EpisodeViewState
 import com.panvova.rickmorty.presentation.base.BaseController
 import com.panvova.rickmorty.presentation.features.episodes.epoxy.EpisodeEpoxyController
+import org.koin.java.KoinJavaComponent.inject
 import timber.log.Timber
-import javax.inject.Inject
 
 class EpisodeController :
     BaseController<EpisodesControllerBinding>(EpisodesControllerBinding::inflate), EpisodeView {
 
-    @Inject
-    protected lateinit var presenter: EpisodePresenter
+    private val presenter: EpisodePresenter by inject(EpisodePresenter::class.java)
+
     private val episodeEpoxyController = EpisodeEpoxyController()
 
     override fun onAttach(view: View) {
         super.onAttach(view)
-        App.component.inject(this)
         presenter.attachView(this)
         setupRecyclerView()
     }

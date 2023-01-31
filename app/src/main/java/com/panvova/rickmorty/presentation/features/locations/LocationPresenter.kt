@@ -5,12 +5,10 @@ import com.panvova.rickmorty.domain.viewstate.LocationViewState
 import com.panvova.rickmorty.presentation.base.BasePresenter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class LocationPresenter @Inject constructor(
+class LocationPresenter(
     private val locationsUseCase: GetLocationsUseCase,
 ) : BasePresenter<LocationView>() {
 

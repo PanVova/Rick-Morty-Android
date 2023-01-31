@@ -5,12 +5,10 @@ import com.panvova.rickmorty.domain.viewstate.EpisodeViewState
 import com.panvova.rickmorty.presentation.base.BasePresenter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class EpisodePresenter @Inject constructor(
+class EpisodePresenter(
     private val episodesUseCase: GetEpisodesUseCase,
 ) : BasePresenter<EpisodeView>() {
 

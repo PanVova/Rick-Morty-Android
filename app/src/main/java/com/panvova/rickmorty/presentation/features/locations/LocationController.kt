@@ -2,25 +2,23 @@ package com.panvova.rickmorty.presentation.features.locations
 
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.LocationsControllerBinding
 import com.panvova.rickmorty.domain.model.Location
 import com.panvova.rickmorty.domain.viewstate.LocationViewState
 import com.panvova.rickmorty.presentation.base.BaseController
 import com.panvova.rickmorty.presentation.features.locations.epoxy.LocationEpoxyController
+import org.koin.java.KoinJavaComponent
 import timber.log.Timber
-import javax.inject.Inject
 
 class LocationController :
     BaseController<LocationsControllerBinding>(LocationsControllerBinding::inflate), LocationView {
 
-    @Inject
-    protected lateinit var presenter: LocationPresenter
+    private val presenter: LocationPresenter by KoinJavaComponent.inject(LocationPresenter::class.java)
+
     private val locationEpoxyController = LocationEpoxyController()
 
     override fun onAttach(view: View) {
         super.onAttach(view)
-        App.component.inject(this)
         presenter.attachView(this)
         setupRecyclerView()
     }

@@ -7,7 +7,6 @@ import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import com.panvova.rickmorty.App
 import com.panvova.rickmorty.databinding.ActivityMainBinding
 import com.panvova.rickmorty.domain.model.Character
 import com.panvova.rickmorty.presentation.features.characterDetails.CharacterDetailsController
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        App.component.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         var controller: Controller = MenuController()
         if (intent.action == "android.intent.action.LOCATION") {
